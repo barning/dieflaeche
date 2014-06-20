@@ -1,16 +1,6 @@
 import de.looksgood.ani.*;
 import de.looksgood.ani.easing.*;
 
-import ddf.minim.spi.*;
-import ddf.minim.signals.*;
-import ddf.minim.*;
-import ddf.minim.analysis.*;
-import ddf.minim.ugens.*;
-import ddf.minim.effects.*;
-
-Minim minim;
-AudioSnippet snippet;
-
 Ani aniRotation,newRotation,rotate;
 
 float x,y,r,angle,d,x1,y1,rotation1,rotation2,rotation3,rotation4,rotation5;
@@ -20,9 +10,6 @@ PVector v1,v2,v3,v4,v5,v6;
 float counter=0;
 void setup(){
   size(500,600,OPENGL);
-  frameRate(60);
-  minim = new Minim (this);
-  snippet = minim.loadSnippet ("ping.wav");
   smooth();
   Ani.setDefaultEasing(Ani.QUAD_IN_OUT);
   Ani.init(this);
@@ -65,55 +52,49 @@ void setup(){
     float z= random(0,0.05);
     aniRotation = Ani.to(this,1, 0, "rotation"+i, z);
   }
+  background(0,0,0);
 }
 
 void draw(){
-  background(#2c3e50);
+  fill(0,0,0,10);
+  blendMode(BLEND);
+  rect(0,0,width,height);
   noStroke();
   blendMode(SCREEN);
   translate(width/2,height/2);
-  fill(#2ecc71);
+  
   if (mousePressed){
-  ellipse(v2.x,v2.y,r,r);
-  }
-  fill(#3498db);
-  if (mousePressed){
-  ellipse(v3.x,v3.y,r/2,r/2);
-  }
-  fill(#9b59b6);
-  if (mousePressed){
-  ellipse(v4.x,v4.y,r/4,r/4);
-  }
-  fill(#e67e22);
-  if (mousePressed){
-  ellipse(v5.x,v5.y,r/6,r/6);
-  }
-  fill(#f1c40f);
-  if (mousePressed){
-  ellipse(v6.x,v6.y,r/8,r/8);
+    fill(#2ecc71);
+    ellipse(v2.x,v2.y,r,r);
+    fill(#3498db);
+    ellipse(v3.x,v3.y,r/2,r/2);
+    fill(#9b59b6);
+    ellipse(v4.x,v4.y,r/4,r/4);
+    fill(#e67e22);
+    ellipse(v5.x,v5.y,r/6,r/6);
+    fill(#f1c40f);
+    ellipse(v6.x,v6.y,r/8,r/8);
   }
   
+  fill(0);
   if (mousePressed == false){
-  beginShape();
-  //vertex(v1.x, v1.y);
-  fill(#2ecc71);
-  vertex(v2.x, v2.y);
-  fill(#3498db);
-  vertex(v3.x, v3.y);
-  fill(0,0,255);
-  vertex(v4.x, v4.y);
-  fill(#e67e22);
-  vertex(v5.x, v5.y);
-  fill(#f1c40f);
-  vertex(v6.x, v6.y);
-  endShape(CLOSE);
-  fill(255);
-  //ellipse(v1.x,v1.y,r/16,r/16);
-  ellipse(v2.x,v2.y,r/16,r/16);
-  ellipse(v3.x,v3.y,r/16,r/16);
-  ellipse(v4.x,v4.y,r/16,r/16);
-  ellipse(v5.x,v5.y,r/16,r/16);
-  ellipse(v6.x,v6.y,r/16,r/16);
+    noFill();
+    strokeWeight(2);
+    stroke(0);
+    beginShape();
+      stroke(#E6DD23);
+      vertex(v2.x, v2.y);
+      stroke(#F05E11);
+      vertex(v3.x, v3.y);
+      stroke(#A51AD9);
+      vertex(v4.x, v4.y);
+      stroke(#11AFF0);
+      vertex(v5.x, v5.y);
+      stroke(#38E600);
+      vertex(v6.x, v6.y);
+    endShape(CLOSE);
+    strokeWeight(0);
+
   }
   v2.rotate(rotation1);
   v3.rotate(rotation2);
@@ -126,13 +107,12 @@ void draw(){
       println("NOGO");
     }
   }
-  if (counter>=500){
+  if (counter>=200){
    for (int i = 0; i <=5; i++) {
     counter=0;
     println("GO");
     float z= random(0,0.05);
     aniRotation = Ani.to(this,1, 0, "rotation"+i, z);
-    snippet.play(0);
     
   }
 }

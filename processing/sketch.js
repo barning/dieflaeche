@@ -127,13 +127,9 @@ function generate() {
 		ctx.beginPath();
 		ctx.moveTo(v2.x, v2.y);
 		ctx.lineTo(v3.x, v3.y);
-		ctx.moveTo(v3.x, v3.y);
 		ctx.lineTo(v4.x, v4.y);
-		ctx.moveTo(v4.x, v4.y);
 		ctx.lineTo(v5.x, v5.y);	
-		ctx.moveTo(v5.x, v5.y);
 		ctx.lineTo(v6.x, v6.y);
-		ctx.moveTo(v6.x, v6.y);
 		ctx.lineTo(v2.x, v2.y);
 		ctx.closePath();
 		ctx.stroke();

@@ -122,7 +122,6 @@ function keyPressed() {
 	ctx.lineTo(v2.x, v2.y);
 	ctx.stroke();
     mySVG = ctx.getSerializedSvg(true);
-    print(mySVG);
     downloadAsSVG();
   }
   return false; // prevent default
@@ -140,7 +139,7 @@ function rotator() {
 var downloadAsSVG = function (fileName) {
 
    if(!fileName) {
-       fileName = "example.svg"
+       fileName = "dieflaeche"+second()+minute()+day()+year()+".svg"
    }
 
 	var url = "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(mySVG);

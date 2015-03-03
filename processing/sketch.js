@@ -123,7 +123,7 @@ function generate() {
 		ctx.translate(width/2,height/2);
 		ctx.strokeStyle = 'rgb('+r+','+g+','+b+')';
 		ctx.lineWidth = 5;
-		ctx.lineJoin = "bevel";
+		ctx.lineJoin = "miter";
 		ctx.beginPath();
 		ctx.moveTo(v2.x, v2.y);
 		ctx.lineTo(v3.x, v3.y);
@@ -135,6 +135,7 @@ function generate() {
 		ctx.lineTo(v6.x, v6.y);
 		ctx.moveTo(v6.x, v6.y);
 		ctx.lineTo(v2.x, v2.y);
+		ctx.closePath();
 		ctx.stroke();
 		mySVG = ctx.getSerializedSvg(true);
 		downloadAsSVG();

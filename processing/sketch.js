@@ -13,11 +13,11 @@ function setup() {
 	background(255)
 
   // create sliders
-  rSlider = createSlider(0, 255, 100);
+  rSlider = createSlider(0, 255, 53);
   rSlider.position(20, 20);
-  gSlider = createSlider(0, 255, 0);
+  gSlider = createSlider(0, 255, 166);
   gSlider.position(20, 50);
-  bSlider = createSlider(0, 255, 255);
+  bSlider = createSlider(0, 255, 223);
   bSlider.position(20, 80);
 
   rotation1=random(0,0.05)
@@ -119,7 +119,6 @@ function stop() {
 }
 
 function generate() {
-		//mousePressed();
 		var ctx = new C2S(width,height);
 		ctx.translate(width/2,height/2);
 		ctx.strokeStyle = 'rgb('+r+','+g+','+b+')';

@@ -13,7 +13,7 @@ PVector v1,v2,v3,v4,v5,v6;
 
 float counter=0;
 void setup(){
-  size(500,600,OPENGL);
+  size(500,600);
   smooth();
   Ani.setDefaultEasing(Ani.QUAD_IN_OUT);
   Ani.init(this);
